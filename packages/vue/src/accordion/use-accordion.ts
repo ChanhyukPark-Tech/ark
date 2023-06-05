@@ -1,26 +1,24 @@
-import { connect, machine, type Context as AccordionContext } from '@zag-js/accordion'
+import { connect, machine } from '@zag-js/accordion'
 import { normalizeProps, useMachine } from '@zag-js/vue'
-import { computed, onMounted, reactive, watch } from 'vue'
+import { computed, reactive, watch, type ExtractPropTypes } from 'vue'
+import { useEnvironmentContext } from '../environment'
 import { useId } from '../utils'
+import type { AccordionContext } from './accordion'
 
-export interface UseAccordionContext extends Omit<AccordionContext, 'id' | 'value'> {
-  modelValue?: AccordionContext['value']
-}
-
-export type UseAccordionDefaultValue = AccordionContext['value']
-
-export const useAccordion = (
+export const useAccordion = <T extends ExtractPropTypes<AccordionContext>>(
   emit: CallableFunction,
-  context: UseAccordionContext,
-  defaultValue?: UseAccordionDefaultValue,
+  context: T,
 ) => {
   const reactiveContext = reactive(context)
 
+  const getRootNode = useEnvironmentContext()
+
   const [state, send] = useMachine(
     machine({
-      ...context,
-      value: defaultValue,
-      id: useId().value,
+      ...reactiveContext,
+      value: reactiveContext.modelValue ?? reactiveContext.value,
+      id: reactiveContext.id || useId().value,
+      getRootNode,
       onChange: (details) => {
         emit('change', details.value)
         emit(
@@ -31,11 +29,7 @@ export const useAccordion = (
     }),
   )
 
-  onMounted(() => {
-    // Init modelValue with `defaultValue`.
-    // This is mostly relevant in case modelValue is empty but defaultValue is set.
-    emit('update:modelValue', Array.isArray(defaultValue) ? Array.from(defaultValue) : defaultValue)
-  })
+  const api = computed(() => connect(state.value, send, normalizeProps))
 
   watch(
     () => reactiveContext.modelValue,
@@ -45,9 +39,5 @@ export const useAccordion = (
     },
   )
 
-  const api = computed(() => connect(state.value, send, normalizeProps))
-
   return { api }
 }
-
-export type UseAccordionReturn = ReturnType<typeof useAccordion>

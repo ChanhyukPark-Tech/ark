@@ -1,11 +1,87 @@
-## 0.1.0
+---
+id: changelog
+name: Changelog
+description: All notable changes to this project will be documented in this file. The format is based on Keep a Changelog and this project adheres to and this project adheres to Semantic Versioning.
+---
 
-### Minor Changes
+## [Unreleased]
 
-- [#579](https://github.com/chakra-ui/ark/pull/579) [`35fbf0e3`](https://github.com/chakra-ui/ark/commit/35fbf0e328bfb0d523aa23e498444ee970340d73) Thanks [@TylerAPfledderer](https://github.com/TylerAPfledderer)! - Add component `PinInput`
+## [0.5.0] - 2023-06-03
 
-- [#624](https://github.com/chakra-ui/ark/pull/624) [`486d4e27`](https://github.com/chakra-ui/ark/commit/486d4e2735b4b01bd55c2530f05bfcce288d8ecb) Thanks [@TylerAPfledderer](https://github.com/TylerAPfledderer)! - Add components `Combobox`, `Dialog`, `Editable`, `HoverCard`, `NumberInput`, `Pagination`, `Popover`, `Pressable`, `RadioGroup`, `RangeSlider`, `Select`, `Slider`, `Splitter`, `Tabs`, `Tooltip`
+### Added
 
-- [#365](https://github.com/chakra-ui/ark/pull/365) [`8079af69`](https://github.com/chakra-ui/ark/commit/8079af696266ffcf7cec15d90cea999eae8e7d2a) Thanks [@TimKolberger](https://github.com/TimKolberger)! - Add components `Accordion`
+- Introduced the `onLongPress` property to `Pressable`
 
-- [#628](https://github.com/chakra-ui/ark/pull/628) [`02827cad`](https://github.com/chakra-ui/ark/commit/02827cad673aa2f418a7006d7242e3cdfd8dcbc1) Thanks [@TylerAPfledderer](https://github.com/TylerAPfledderer)! - Add component `Menu`
+### Changed
+
+- Updated all `@zag-js` dependencies to their latest versions
+
+## [0.4.0] - 2023-05-25
+
+### Removed
+
+- Removed `AccordionIcon`
+
+### Fixed
+
+- Fixed a bug where `Toast` and `Environment` weren't exported
+
+## [0.3.0] - 2023-05-23
+
+### Added
+
+- Add `Carousel`
+- Add `Environment`
+- Add `Toast`
+- Add support for `asChild`
+
+### Changed
+
+- Update `Checkbox`. Control `indeterminate` state in `checked` prop
+
+## [0.2.1] - 2023-05-11
+
+### Fixed
+
+- Fix `Dialog` component: apply two-way binding to `open` prop
+
+## [0.2.0] - 2023-04-29
+
+### Added
+
+- Add `ColorPicker`
+- Add `TagsInput`
+
+## [0.1.0] - 2023-04-17
+
+### Added
+
+- Add `Accordion`
+- Add `Checkbox`
+- Add `Combobox`
+- Add `DatePicker`
+- Add `Dialog`
+- Add `Editable`
+- Add `HoverCard`
+- Add `Menu`
+- Add `NumberInput`
+- Add `Pagination`
+- Add `PinInput`
+- Add `Popover`
+- Add `Pressable`
+- Add `RadioGroup`
+- Add `RangeSlider`
+- Add `RatingGroup`
+- Add `Select`
+- Add `Slider`
+- Add `Splitter`
+- Add `Tabs`
+- Add `Tooltip`
+
+[unreleased]: https://github.com/chakra-ui/ark/compare/@ark-ui/vue@0.5.0...HEAD
+[0.5.0]: https://github.com/chakra-ui/ark/releases/tag/@ark-ui/vue@0.5.0
+[0.4.0]: https://github.com/chakra-ui/ark/releases/tag/@ark-ui/vue@0.4.0
+[0.3.0]: https://github.com/chakra-ui/ark/releases/tag/@ark-ui/vue@0.3.0
+[0.2.1]: https://github.com/chakra-ui/ark/releases/tag/@ark-ui/vue@0.2.1
+[0.2.0]: https://github.com/chakra-ui/ark/releases/tag/@ark-ui/vue@0.2.0
+[0.1.0]: https://github.com/chakra-ui/ark/releases/tag/@ark-ui/vue@0.1.0

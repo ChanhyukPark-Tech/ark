@@ -5,7 +5,6 @@
       "isRequired": false,
       "description": "Whether an accordion item can be collapsed after it has been opened."
     },
-    "defaultValue": { "type": "string | string[]", "isRequired": false },
     "dir": {
       "type": "'ltr' | 'rtl'",
       "isRequired": false,
@@ -17,9 +16,14 @@
       "description": "Whether the accordion items are disabled"
     },
     "getRootNode": {
-      "type": "() => Node | ShadowRoot | Document",
+      "type": "() => ShadowRoot | Node | Document",
       "isRequired": false,
       "description": "A root node to correctly resolve document in custom environments. E.x.: Iframes, Electron."
+    },
+    "id": {
+      "type": "string",
+      "isRequired": false,
+      "description": "The unique identifier of the machine."
     },
     "ids": {
       "type": "Partial<{\n  root: string\n  item(value: string): string\n  content(value: string): string\n  trigger(value: string): string\n}>",
@@ -41,6 +45,11 @@
       "type": "'horizontal' | 'vertical'",
       "isRequired": false,
       "description": "The orientation of the accordion items."
+    },
+    "value": {
+      "type": "string | string[]",
+      "isRequired": false,
+      "description": "The `id` of the accordion item that is currently being opened."
     }
   },
   "AccordionItemProps": {

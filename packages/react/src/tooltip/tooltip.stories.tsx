@@ -1,3 +1,4 @@
+import type { Meta } from '@storybook/react'
 import { Portal } from '@zag-js/react'
 import { useState } from 'react'
 import {
@@ -9,11 +10,18 @@ import {
   TooltipTrigger,
 } from './'
 
+type TooltipType = typeof Tooltip
+
+const meta: Meta<TooltipType> = {
+  title: 'Tooltip',
+  component: Tooltip,
+}
+
+export default meta
+
 export const Basic = () => (
   <Tooltip openDelay={0} closeDelay={0}>
-    <TooltipTrigger>
-      <span>hover me</span>
-    </TooltipTrigger>
+    <TooltipTrigger>hover me</TooltipTrigger>
     <Portal>
       <TooltipPositioner>
         <TooltipArrow>
@@ -31,9 +39,7 @@ export const Controlled = () => {
     <>
       <button onClick={() => setIsOpen(!isOpen)}>Toggle</button>
       <Tooltip open={isOpen} openDelay={0} closeDelay={0}>
-        <TooltipTrigger>
-          <span>hover me</span>
-        </TooltipTrigger>
+        <TooltipTrigger>hover me</TooltipTrigger>
         <Portal>
           <TooltipPositioner>
             <TooltipArrow>
@@ -51,9 +57,7 @@ export const WithRenderFn = () => (
   <Tooltip openDelay={0} closeDelay={0}>
     {({ isOpen }) => (
       <>
-        <TooltipTrigger>
-          <span>hover me</span>
-        </TooltipTrigger>
+        <TooltipTrigger>hover me</TooltipTrigger>
         <Portal>
           <TooltipPositioner>
             <TooltipArrow>
